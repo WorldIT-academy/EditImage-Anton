@@ -22,7 +22,6 @@ def create_media_folder():
         # join об'єднує шляхи
         # abspath будує нормальний шлях
         path_media = os.path.abspath(os.path.join(__file__, "..", "..", "..", "media"))
-        print(10 / 0)
         for dir in ["downloaded_images", "edited_images"]:
             # перевіряємо чи існує папка dir у папці media
             if os.path.exists(os.path.join(path_media, dir)) == False:
@@ -34,5 +33,3 @@ def create_media_folder():
     except Exception as exception:
         print(f"{RED}Сталася помилка при створенні директорії media: {exception}")
         print(f"{RED}Сталася помилка у рядку {exception.__traceback__.tb_lineno}")
-
-create_media_folder()
