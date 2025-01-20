@@ -32,6 +32,7 @@ class App(ctk.CTk):
         
         self.title(json_data["app_title"]) # title задає назву вікна
         self.geometry(f"{self.width}x{self.height}") # geometry задає розмір вікна
+        self.resizable(width=False, height=False) # resizable дозволяє заборонити зміну розмірів вікна
         # 255 255 255
         # #123546
         self.header = App_frame(
