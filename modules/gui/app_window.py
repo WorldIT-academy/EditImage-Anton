@@ -16,6 +16,19 @@ class App(ctk.CTk):
         # app = App(name = "Michael")
         # {"name": "Michael"}
         
+        
+        # нумерований (неіменований), упорядкований
+        # ("Суп", "котлета", "салат", "компот")
+        
+        
+        # іменований варіант (неупорядкований)
+        # {
+        #     "сніданок": "салат",
+        #     "обід": "суп",
+        #     "вечеря": "котлета"
+        # }
+                
+        
         # name_of_dict["name_of_key"]
         # rgb - 255, 255, 255
         json_data = read_json(name_json="settings.json")
@@ -33,8 +46,8 @@ class App(ctk.CTk):
         self.title(json_data["app_title"]) # title задає назву вікна
         self.geometry(f"{self.width}x{self.height}") # geometry задає розмір вікна
         self.resizable(width=False, height=False) # resizable дозволяє заборонити зміну розмірів вікна
-        # 255 255 255
-        # #123546
+        # 255 255 255 - rgb
+        # #123546 - hex
         self.header = App_frame(
             ch_master = self,
             width= self.width,
@@ -47,7 +60,7 @@ class App(ctk.CTk):
             ch_master= self,
             height = self.height * 0.95,
             width = self.width,
-            fg_color = "#1f1f1f"
+            fg_color = "#a1a1a1"
         )
         self.content.place(x= 0, y = self.height * 0.05 + 1)
         self.vertical_menu= App_frame(
@@ -57,4 +70,34 @@ class App(ctk.CTk):
             fg_color = "#181818",
         )
         self.vertical_menu.place(x= 0, y = 0)
+        
+        self.explorer = App_frame(
+            ch_master=self.content,
+            width= self.content._current_width * 0.15,
+            height=self.content._current_height,
+            fg_color = "#181818"
+        )
+        self.explorer.place(x=self.vertical_menu._current_width + 1, y=0)       
+        self.dashboard = App_frame(
+            ch_master=self.content,
+            width= self.content._current_width * 0.8,
+            height= self.content._current_height,
+            fg_color = "#a1a1a1"
+        )
+        self.dashboard.place(x=self.vertical_menu._current_width + self.explorer._current_width + 3, y=0)
+        self.header_dashboard = App_frame(
+            ch_master = self.dashboard,
+            width = self.dashboard._current_width,
+            height = self.dashboard._current_height * 0.04,
+            fg_color = "#181818"
+        )
+        self.header_dashboard.place(x = 0, y = 0)
+        self.content_dashboard = App_frame(
+            ch_master=self.dashboard,
+            width=self.dashboard._current_width,
+            height=self.dashboard._current_height * 0.96,
+            fg_color="#1f1f1f"
+        )
+        self.content_dashboard.place(x=0, y=self.header_dashboard._current_height + 1)
+        
 app = App()
