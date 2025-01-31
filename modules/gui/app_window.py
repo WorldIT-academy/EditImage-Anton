@@ -4,6 +4,7 @@
 import customtkinter as ctk 
 from .app_frame import App_frame
 from ..tools import read_json
+from .app_button import App_button
 
 class App(ctk.CTk):
     """
@@ -99,5 +100,16 @@ class App(ctk.CTk):
             fg_color="#1f1f1f"
         )
         self.content_dashboard.place(x=0, y=self.header_dashboard._current_height + 1)
+        
+        
+        self.search_button = App_button(
+            size = self.vertical_menu._current_width * 0.5,
+            ch_master= self.vertical_menu,
+            fg_color= "#181818",
+            hover_color = "#373535",
+            name_image= "explorer.png"
+        )
+
+        self.search_button.place(x=10, y=20)
         
 app = App()
