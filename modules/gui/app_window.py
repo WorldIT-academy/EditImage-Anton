@@ -3,7 +3,7 @@
 """
 import customtkinter as ctk 
 from .app_frame import App_frame
-from ..tools import read_json
+from ..tools import read_json, image_search
 from .app_button import App_button
 
 class App(ctk.CTk):
@@ -102,14 +102,19 @@ class App(ctk.CTk):
         self.content_dashboard.place(x=0, y=self.header_dashboard._current_height + 1)
         
         
+        
+            
+        # lambda функція - це анонімна функція (без імені).
+        # В ній може бути тільки 1 рядок коду
         self.search_button = App_button(
             size = self.vertical_menu._current_width * 0.5,
             ch_master= self.vertical_menu,
             fg_color= "#181818",
             hover_color = "#373535",
-            name_image= "explorer.png"
+            name_image= "explorer.png",
+            command= lambda: image_search(parent=self)
         )
 
         self.search_button.place(x=10, y=20)
-        
+
 app = App()
