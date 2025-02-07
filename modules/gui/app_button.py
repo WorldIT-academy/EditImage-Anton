@@ -23,7 +23,7 @@ class App_button(ctk.CTkButton):
     
     # Ми створюємо властивість (свойство) "мозку" класу (методу-конструктору),
     # а використовуємо у інших методах через self
-    def __init__(self, size, ch_master, fg_color, hover_color, name_image, command, **kwargs):
+    def __init__(self, size, ch_master, fg_color, hover_color, name_image=None, command=None, text='', **kwargs):
         self.name_image = name_image
         self.size = size
 
@@ -34,7 +34,7 @@ class App_button(ctk.CTkButton):
             height=int(size),
             fg_color=fg_color,
             hover_color=hover_color,
-            text = "",
+            text=text,
             image=self.load_image(),
             command=command,
             **kwargs

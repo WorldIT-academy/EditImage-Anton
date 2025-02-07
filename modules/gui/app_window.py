@@ -78,7 +78,10 @@ class App(ctk.CTk):
             height=self.content._current_height,
             fg_color = "#181818"
         )
-        self.explorer.place(x=self.vertical_menu._current_width + 1, y=0)       
+        # pack_propagate(False) - вимикає підлаштування розміру батьківського фрейму під розмір його вмісту
+        self.explorer.pack_propagate(False)
+        self.explorer.place(x=self.vertical_menu._current_width + 1, y=0)  
+            
         self.dashboard = App_frame(
             ch_master=self.content,
             width= self.content._current_width * 0.8,
@@ -112,7 +115,7 @@ class App(ctk.CTk):
             fg_color= "#181818",
             hover_color = "#373535",
             name_image= "explorer.png",
-            command= lambda: image_search(parent=self)
+            command= lambda: image_search(parent=self, ch_master=self.explorer)
         )
 
         self.search_button.place(x=10, y=20)
