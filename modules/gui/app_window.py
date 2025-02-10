@@ -105,7 +105,7 @@ class App(ctk.CTk):
         self.content_dashboard.place(x=0, y=self.header_dashboard._current_height + 1)
         
         
-        
+        self.content_dashboard.pack_propagate(False)
             
         # lambda функція - це анонімна функція (без імені).
         # В ній може бути тільки 1 рядок коду
@@ -115,7 +115,7 @@ class App(ctk.CTk):
             fg_color= "#181818",
             hover_color = "#373535",
             name_image= "explorer.png",
-            command= lambda: image_search(parent=self, ch_master=self.explorer)
+            command= lambda: image_search(parent=self, ch_master=self.explorer, dashboard= self.content_dashboard)
         )
 
         self.search_button.place(x=10, y=20)
