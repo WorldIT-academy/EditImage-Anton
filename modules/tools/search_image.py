@@ -20,8 +20,8 @@ def show_image(frame: ctk.CTkFrame, name_image:str):
             child.pack_forget()
     for image in image_list:
         if image.image_path.split("/")[-1] == name_image:
-            image.pack()
-            
+            image.pack(pady=30)
+
 # askopenfiles - відкриває діалогове вікно, і повертає кортеж з відкритими обраними файлами
 # askopenfilenames - відкриває діалогове вікно, і повертає кортеж з повними шляхами обраних файлів
 
@@ -50,9 +50,6 @@ def image_search(parent, ch_master, dashboard):
             command = lambda name=i.split("/")[-1]: show_image(frame=dashboard, name_image=name)
         )
 
-        
-        
-        
         # pack - розміщує об'єкти по черзі.
         # підлаштовує розміри батьківського фрейму під розміри його вмісту
         button.pack(anchor="w", pady=10, padx=20)
